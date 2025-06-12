@@ -10,6 +10,131 @@
 			"name": "Comidas",
 			"item": [
 				{
+					"name": "Crear comidas - Ejemplos",
+					"item": [
+						{
+							"name": "api/v1/comidas/:id 1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombreComida\": \"ComidaUno\",\r\n    \"Proteina\": 5,\r\n    \"Carbohidratos\": 10,\r\n    \"Grasas\": 2,\r\n    \"cantidadPorcion\": 100,\r\n    \"UnidadMedida\": \"gr\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3333/api/v1/comidas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3333",
+									"path": [
+										"api",
+										"v1",
+										"comidas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "api/v1/comidas/:id 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombreComida\": \"ComidaDos\",\r\n    \"Proteina\": 10,\r\n    \"Carbohidratos\": 20,\r\n    \"Grasas\": 7,\r\n    \"cantidadPorcion\": 150,\r\n    \"UnidadMedida\": \"gr\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3333/api/v1/comidas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3333",
+									"path": [
+										"api",
+										"v1",
+										"comidas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "api/v1/comidas/:id 3",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombreComida\": \"ComidaTres\",\r\n    \"Proteina\": 15,\r\n    \"Carbohidratos\": 30,\r\n    \"Grasas\": 10,\r\n    \"cantidadPorcion\": 200,\r\n    \"UnidadMedida\": \"gr\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3333/api/v1/comidas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3333",
+									"path": [
+										"api",
+										"v1",
+										"comidas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "api/v1/comidas/:id 4",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombreComida\": \"ComidaCuatro\",\r\n    \"Proteina\": 20,\r\n    \"Carbohidratos\": 40,\r\n    \"Grasas\": 15,\r\n    \"cantidadPorcion\": 100,\r\n    \"UnidadMedida\": \"gr\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3333/api/v1/comidas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3333",
+									"path": [
+										"api",
+										"v1",
+										"comidas"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "/ (Raiz)",
 					"request": {
 						"method": "GET",
@@ -81,7 +206,7 @@
 					"response": []
 				},
 				{
-					"name": "api/v1/comidas/:idClient",
+					"name": "api/v1/comidas",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -111,7 +236,7 @@
 					"response": []
 				},
 				{
-					"name": "api/v1/comidas/:idClient",
+					"name": "api/v1/comidas/:id",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -141,13 +266,13 @@
 					"name": "CrearRecetas - Ejemplos",
 					"item": [
 						{
-							"name": "api/v1/recetas/:id Copy",
+							"name": "api/v1/recetas 1",
 							"request": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"idComidas\": [1, 3]\r\n}",
+									"raw": "{\r\n    \"idComidas\": [1, 3],\r\n    \"nombreReceta\": \"Receta1\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -171,13 +296,13 @@
 							"response": []
 						},
 						{
-							"name": "api/v1/recetas/:id Copy 2",
+							"name": "api/v1/recetas 2",
 							"request": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"idComidas\": [2, 4]\r\n}",
+									"raw": "{\r\n    \"idComidas\": [2, 4],\r\n    \"nombreReceta\": \"Receta2\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -201,13 +326,13 @@
 							"response": []
 						},
 						{
-							"name": "api/v1/recetas/:id Copy 3",
+							"name": "api/v1/recetas 3",
 							"request": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"idComidas\": [2, 4]\r\n}",
+									"raw": "{\r\n    \"idComidas\": [1, 2],\r\n    \"nombreReceta\": \"Receta3\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -231,13 +356,13 @@
 							"response": []
 						},
 						{
-							"name": "api/v1/recetas/:id Copy 4",
+							"name": "api/v1/recetas 4",
 							"request": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"idComidas\": [1, 2, 3]\r\n}",
+									"raw": "{\r\n    \"idComidas\": [1, 2, 3],\r\n    \"nombreReceta\": \"Receta4\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -261,13 +386,13 @@
 							"response": []
 						},
 						{
-							"name": "api/v1/recetas/:id ERROR",
+							"name": "api/v1/recetas/:id ERROR (1 id)",
 							"request": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"idComidas\": [1, 2, 3]\r\n}",
+									"raw": "{\r\n    \"idComidas\": [1]\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -348,7 +473,7 @@
 					"response": []
 				},
 				{
-					"name": "api/v1/recetas/:id",
+					"name": "api/v1/recetas",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -405,12 +530,12 @@
 			"name": "Recomendacion",
 			"item": [
 				{
-					"name": "/api/v1/recomendacion/comidas/:id",
+					"name": "/api/v1/recomendacion/:id/comidas",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3333/api/v1/recomendacion/comidas/5",
+							"raw": "http://localhost:3333/api/v1/recomendacion/1/comidas",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -420,20 +545,20 @@
 								"api",
 								"v1",
 								"recomendacion",
-								"comidas",
-								"5"
+								"1",
+								"comidas"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "/api/v1/recomendacion/recetas/:id",
+					"name": "/api/v1/recomendacion/:id/recetas",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3333/api/v1/recomendacion/recetas/5",
+							"raw": "http://localhost:3333/api/v1/recomendacion/2/recetas",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -443,8 +568,8 @@
 								"api",
 								"v1",
 								"recomendacion",
-								"recetas",
-								"5"
+								"2",
+								"recetas"
 							]
 						}
 					},
