@@ -3,6 +3,7 @@ const app = express();
 app.use(express.json());
 
 // Comidas que se guardan en memoria con sus valores
+/*
 let comidas = [
     {
       idComida: 1,
@@ -70,8 +71,8 @@ let comidas = [
         calTotales:       2*4 + 40*4 + 15*9
     }
   ];
-
-
+*/
+let comidas = [];
 // Recetas que se guardan en memoria
 let recetas = [
 ];
@@ -85,8 +86,7 @@ app.get('/', function(request, response) {
 
 // GET /api/v1/comidas --> Trae todas las comidas que haya
 app.get('/api/v1/comidas', function(req, res) {
-
-    res.json(comidas);
+res.json(comidas);
 });
 
 // GET /api/v1/comidas/:id --> Trae los datos de una comida identificandola por ID
@@ -169,7 +169,10 @@ app.get('/api/v1/recetas/:id', (req, res) => {
 
 // POST /api/v1/recetas --> crea una nueva receta a partir de mínimo 2 ID de comidas y le asigna un idReceta incremental
 app.post('/api/v1/recetas', (req, res) => {
-    const { idComidas } = req.body; 
+    const {
+    idComidas,
+    nombreReceta
+    } = req.body; 
     // Validamos que sea un array con mínimo 2 ID de comidas
     if (!Array.isArray(idComidas) || idComidas.length < 2) {
       return res.status(400).json({ error: 'Envía un array con 2 o más id de comidas' });
@@ -191,6 +194,7 @@ app.post('/api/v1/recetas', (req, res) => {
     // Construir objeto de receta con idReceta incremental
     const nuevaReceta = {
       idReceta: recetas.length + 1,
+      nombreReceta,
       comidas: comidasSeleccionadas,
       totalProteina,
       totalCarbohidratos,
@@ -224,8 +228,8 @@ app.delete('/api/v1/recetas/:id', (req, res) => {
 //---------------------------------------------------------------
 
 
-// GET /api/v1/recomendacion/comidas/:id -->  Recomienda una comida para una etapa (volumen, definición o mantenimiento). Devuelve la comida, la etapa recomendada, el porcentaje de proteína y la cantidad de calorías totales que tiene la comida
-app.get('/api/v1/recomendacion/comidas/:id', (req, res) => {
+// GET /api/v1/recomendacion/:id/comidas -->  Recomienda una comida para una etapa (volumen, definición o mantenimiento). Devuelve la comida, la etapa recomendada, el porcentaje de proteína y la cantidad de calorías totales que tiene la comida
+app.get('/api/v1/recomendacion/:id/comidas', (req, res) => {
     const id = Number(req.params.id);
     const comida = comidas.find(c => c.idComida === id);
     if (!comida) {
@@ -255,8 +259,8 @@ app.get('/api/v1/recomendacion/comidas/:id', (req, res) => {
   });
   
   
-// GET /api/v1/recomendacion/recetas/:id --> devuelve id de la receta, etapa recomendada, % de proteína y calorías totales de una receta
-app.get('/api/v1/recomendacion/recetas/:id', (req, res) => {
+// GET /api/v1/recomendacion/:id/recetas --> devuelve id de la receta, etapa recomendada, % de proteína y calorías totales de una receta
+app.get('/api/v1/recomendacion/:id/recetas', (req, res) => {
     const id = Number(req.params.id);
     const receta = recetas.find(r => r.idReceta === id);
     if (!receta) {
@@ -283,6 +287,7 @@ app.get('/api/v1/recomendacion/recetas/:id', (req, res) => {
     // Respondemos con idReceta, etapa, % de proteína y calorías totales
     res.json({
       idReceta:      receta.idReceta, // id de la receta
+      nombreReceta: receta.nombreReceta, // Nombre de la receta
       etapa,               // Etapa recomendada
       pctProteina:   pct,  // Porcentaje de proteína
       totalCalorias: totalCalTotales  // cantidad total de calorías
